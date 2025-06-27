@@ -1,0 +1,48 @@
+{
+  "onlyRed": [
+    "Enfermedad autoinmune",
+    "Esfacelo",
+    "Necrosis seca costra gruesa y dura",
+    "Exposición de fascia tendón músculo osteosíntesis"
+  ],
+  "onlyGreen": [
+    "Cerrada",
+    "Cicatriz lineal"
+  ],
+  "yellowAndRed": [
+    "Enfermedad arterial periférica",
+    "Enfermedad tromboembólica periférica",
+    "Enfermedad venosa periférica",
+    "Inmunodepresión",
+    "Edema de la herida",
+    "Aumento de volumen local",
+    "Aumento de temperatura local",
+    "Celulitis",
+    "Secreción turbia",
+    "Exudado purulento",
+    "Necrosis húmeda",
+    "Úlcera",
+    "Mal olor",
+    "Induración de tejidos circundantes",
+    "Tejido de hipergranulación granuloma",
+    "Bordes irregulares",
+    "Descompensada, sin tratamiento"
+  ],
+  "yellowAndGreen": [
+    "Costras pequeñas superficiales",
+    "Erosión superficial"
+  ],
+  "allCategories": [
+    "Diabetes Mellitus Insulino Requirente",
+    "Diabetes Mellitus No insulino Requirente",
+    "Malnutrición por exceso",
+    "Malnutrición por déficit",
+    "Eritema piel roja",
+    "Secreción serosa",
+    "Flictenas",
+    "Dolor local",
+    "Prurito picazón",
+    "Sangrado persistente",
+    "Compensada, en tratamiento"
+  ]
+}
