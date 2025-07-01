@@ -10,7 +10,10 @@
   let dateInput;
   let selectedDate = '';
 
-  function handleSelection() {
+  const dispatch = createEventDispatcher();
+
+  function handleSelection(dateStr) {
+      selectedDate = dateStr;
       dispatch('dateSelected', { field, value: selectedDate });
   }
 
@@ -20,12 +23,10 @@
       dateFormat: "d-m-Y",
       onChange: (selectedDates, dateStr) => {
         selectedDate = dateStr;
-        handleSelection();
+        handleSelection(dateStr);
       }
     });
   });
-
-  const dispatch = createEventDispatcher();
 
 </script>
 

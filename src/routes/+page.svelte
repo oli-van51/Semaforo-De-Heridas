@@ -130,7 +130,7 @@
     function handleInput(event) {
         const { field, value } = event.detail;
         fields[field] = value;
-        console.log(`Field updated: `);
+        console.log(`Field updated: `, field, value, fields[field]);
     }
 
     function handleComorbilidades(event) {
@@ -150,10 +150,21 @@
 
     function calculateResult() {
 
-        const accidentDay = new Date(fields.fecha_accidente);
+        console.log(fields["fecha_accidente"])
+        let accidentDay;
+        if (fields["fecha_accidente"] && fields["fecha_accidente"].includes('-')) {
+            const [day, month, year] = fields["fecha_accidente"].split('-');
+            accidentDay = new Date(`${year}-${month}-${day}`);
+        } else {
+            accidentDay = new Date(fields["fecha_accidente"]);
+        }
+
         const currentDate = new Date(); //Parentesis vacio significa fecha actual
         const diffInMilliseconds = currentDate.getTime() - accidentDay.getTime();
         let tSinceAccident = diffInMilliseconds / (1000 * 60 * 60 * 24);
+        tSinceAccident = Math.floor(tSinceAccident);
+
+        console.log(tSinceAccident);
 
         const onlyRedResult = onlyRed.map(key =>
             descripcion_herida[key] ?? comorbilidades[key]  ?? tratamientos_comorbilidad[key] ?? false
@@ -364,10 +375,10 @@
 <Dropdown field="convenio" menuType="Ley/ISL/Convenio" items={convenios} on:optionSelected={handleInput}></Dropdown>
 
 <h3>Especifique fecha de accidente del paciente</h3>
-<Calendar field="fecha_accidente"></Calendar>
+<Calendar field="fecha_accidente" on:dateSelected={handleInput}></Calendar>
 
 <h3>Especifique fecha de ultima cirugía del paciente</h3>
-<Calendar field="fecha_ultima_cirugía"></Calendar>
+<Calendar field="fecha_ultima_cirugia" on:dateSelected={handleInput}></Calendar>
 
 <h3>Especifique numero de días desde el accidente del paciente</h3>
 <Dropdown field="numero_de_dias" menuType="Dias desde accidente" items={dias} on:optionSelected={handleInput}></Dropdown>

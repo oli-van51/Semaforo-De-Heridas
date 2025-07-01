@@ -1,6 +1,13 @@
 import Database from "better-sqlite3";
+import fs from "fs";
+import path from "path";
 
-const db = new Database("resultados/registro_semaforo_de_heridas.sqlite");
+const dir = path.resolve("resultados");
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir, { recursive: true });
+}
+
+const db = new Database(path.join(dir, "registro_semaforo_de_heridas.sqlite"));
 
 db.exec(`
 CREATE TABLE IF NOT EXISTS patients (
